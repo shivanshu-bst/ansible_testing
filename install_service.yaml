@@ -1,0 +1,7 @@
+- name: installing the service manually
+  hosts: all
+  tasks:
+  - name: copying service file to target
+    ansible.builtin.copy:
+      src: service_name/fredboat.service
+      dest: /etc/systemd/system/

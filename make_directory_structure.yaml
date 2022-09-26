@@ -1,0 +1,16 @@
+- name: creating directory path
+  hosts: all
+  tasks:
+  - name: creating directory
+    file:
+      path: /root/fredboat
+      state: directory
+      mode: 0755
+  - name: copying Needed files
+    ansible.builtin.copy:
+      src: files/{{ item }}
+      dest: /root/fredboat/
+    with_items:
+    - fredboat.yml
+    - common.yml
+    - spotify.yml  
