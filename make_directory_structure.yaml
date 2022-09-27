@@ -8,9 +8,9 @@
       mode: 0755
   - name: copying Needed files
     ansible.builtin.copy:
-      src: files/{{ item }}
+      src: /home/ubuntu/ansible/Fredboat/tenshi-staging/{{ item }}
       dest: /root/fredboat/
     with_items:
     - fredboat.yml
     - common.yml
-    - spotify.yml  
+    - spotify-artists.yml  
