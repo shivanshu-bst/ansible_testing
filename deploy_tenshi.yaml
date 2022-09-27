@@ -1,6 +1,6 @@
 - name: It will deploy tenshi 
   vars:
-  hosts: freya-dev
+  hosts: all
   tasks:
     - name: Stop tenshi service
       ansible.builtin.service:
