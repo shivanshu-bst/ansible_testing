@@ -1,0 +1,38 @@
+- name: It will deploy tenshi 
+  vars:
+  hosts: freya-dev
+  tasks:
+    - name: Stop tenshi service
+      ansible.builtin.service:
+        name: fredboatloader
+        state: stopped
+        enabled: yes
+    - name: Task name
+      stat:
+        path: /root/fredboat_test/FredBoat.jar 
+      register: register_name
+    - name: Task Bootloader exists
+      stat:
+        path: /root/fredboat_test/FredBoat.jar 
+      register: register_name2
+    - name: Remove old files foo
+      file: path=/root/fredboat_test/fredboat-old.jar state=absent
+    - name: Backup old service
+      command: mv /root/fredboat_test/FredBoat.jar /root/fredboat_test/fredboat-old.jar
+      when: register_name.stat.exists
+    - name: Check Bootloader exists
+      ansible.builtin.get_url:
+        url: https://tenshi-jar.s3.amazonaws.com/Bootloader.jar
+        dest: /root/fredboat_test/Bootloader.jar
+        mode: '0755'
+      when: register_name2.stat.exists
+    - name: copy tenshi
+      ansible.builtin.get_url:
+        url: https://tenshi-jar.s3.amazonaws.com/FredBoat.jar
+        dest: /root/fredboat_test/FredBoat.jar
+        mode: '0755'
+    - name: Start tenshi service  
+      ansible.builtin.service:
+        name: fredboatloader
+        state: started
+        enabled: yes
