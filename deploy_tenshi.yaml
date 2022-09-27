@@ -37,3 +37,4 @@
         name: fredboatloader
         state: started
         enabled: yes
+      ignore_errors: yes
