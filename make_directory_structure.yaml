@@ -3,13 +3,13 @@
   tasks:
   - name: creating directory
     file:
-      path: /root/fredboat
+      path: /root/fredboat_test
       state: directory
       mode: 0755
   - name: copying Needed files
     ansible.builtin.copy:
       src: /home/ubuntu/ansible/Fredboat/tenshi-staging/{{ item }}
-      dest: /root/fredboat/
+      dest: /root/fredboat_test/
     with_items:
     - fredboat.yml
     - common.yml
