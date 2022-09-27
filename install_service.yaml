@@ -1,5 +1,5 @@
 - name: installing the service manually
-  hosts: 162.248.100.21
+  hosts: all
   tasks:
   - name: copying service file to target
     ansible.builtin.copy:
