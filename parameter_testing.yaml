@@ -160,7 +160,6 @@
 
 
 
-
       credentials:
 
         # Used by the ;;split and ;;np commands. Must be hooked up to the Youtube Data API.
@@ -185,7 +184,7 @@
 
         sentinelToken: {{ sentinelToken }
 
-      ###############################
+        ###############################
 
       crowsnest:
 
