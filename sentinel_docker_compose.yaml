@@ -108,9 +108,9 @@
     ignore_errors: yes
   - name: Copy files to server keyfile.json
     ansible.builtin.copy:
-    src: '/home/ubuntu/ansible/Fredboat/fred_docker/keyfile.json'
-    dest: '/root/'
-    mode: '755'
+     src: '/home/ubuntu/ansible/Fredboat/fred_docker/keyfile.json'
+     dest: '/root/'
+     mode: '755'
   - name: Login to GCR
     shell: cat keyfile.json | docker login -u _json_key --password-stdin https://gcr.io
 
