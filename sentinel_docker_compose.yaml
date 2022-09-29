@@ -102,23 +102,22 @@ tasks:
        
                      
 
+- name: Docker-compose down
+  command: chdir=/root/{{ item }} docker-compose down
+  with_items: "{{ folder }}"
+  ignore_errors: yes
+- name: Copy files to server keyfile.json
+  ansible.builtin.copy:
+  src: '/home/ubuntu/ansible/Fredboat/fred_docker/keyfile.json'
+  dest: '/root/'
+  mode: '755'
+- name: Login to GCR
+  shell: cat keyfile.json | docker login -u _json_key --password-stdin https://gcr.io
 
-   - name: Docker-compose down
-     command: chdir=/root/{{ item }} docker-compose down
-     with_items: "{{ folder }}"
-     ignore_errors: yes
-   - name: Copy files to server keyfile.json
-     ansible.builtin.copy:
-        src: '/home/ubuntu/ansible/Fredboat/fred_docker/keyfile.json'
-        dest: '/root/'
-        mode: '755'
-   - name: Login to GCR
-     shell: cat keyfile.json | docker login -u _json_key --password-stdin https://gcr.io
+- name: Download sentinel docker image from ecr repo
+  command: chdir=/root/{{ item }} docker-compose pull 
+  with_items: "{{ folder }}" 
 
-   - name: Download sentinel docker image from ecr repo
-     command: chdir=/root/{{ item }} docker-compose pull 
-     with_items: "{{ folder }}" 
-
-   - name: Docker-compose up
-     command: chdir=/root/{{ item }} docker-compose up -d
-     with_items: "{{ folder }}"
+- name: Docker-compose up
+  command: chdir=/root/{{ item }} docker-compose up -d
+  with_items: "{{ folder }}"
