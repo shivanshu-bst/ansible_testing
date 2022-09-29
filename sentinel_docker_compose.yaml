@@ -1,0 +1,124 @@
+- name: Create a Directory {{ item }}
+     file:
+       path: /root/{{ item }}
+       state: directory
+       mode: 0755
+     with_items: "{{ folder }}"
+       
+   -  name: Copy files to docker-compse
+      ansible.builtin.copy:
+        dest: /root/{{ item }}/docker-compose.yaml
+        mode: '755'
+        content: |
+          version: '3'
+          services:
+            {{ item }}:
+              image: gcr.io/fredboat-prod/sentinel:staging
+              networks:
+                vpcbr:
+                  ipv4_address: 10.6.0.2
+              restart: always
+              labels:
+              - "com.centurylinklabs.watchtower.enable=true"
+              volumes:
+              - ./{{ item }}_logs:/opt/sentinel/logs
+              - ./{{ item }}.yml:/opt/sentinel/sentinel.yaml
+          #    - ./common.yml:/opt/sentinel/common.yml
+              # Need a bigger memory size or any other custom JVM args? Edit the line below accordingly
+              ports:
+               -  "{{ address }}:27212:27212"
+               -  "{{ address }}:5010:5010"
+              entrypoint: java -Xmx2g -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5010 sentinel.jar
+              
+              logging:
+                driver: "json-file"
+                options:
+                  max-file: "3"
+                  max-size: 1g
+          networks: 
+            vpcbr:
+              driver: bridge
+              driver_opts:
+                com.docker.network.enable_ipv6: "false"
+              ipam:
+                driver: default
+                config:
+                - subnet: 10.6.0.0/16
+      with_items: "{{ folder }}"      
+ 
+   -  name: Copy files to server sentinel
+      copy: 
+        dest: "/root/{{ item }}/{{ item }}.yml"
+        mode: '755'
+        content: | 
+          sentinel:
+            discordToken: "{{ discordToken }}"
+            tenshiUrl: "{{ tenshiUrl }}"
+            tenshiToken: "{{ tenshiToken }}"
+            sentinelToken: "{{ sentinelToken }}"
+            sentinelUrl: "{{ sentinelUrl }}"
+            # The range of shards to start from shardStart (inclusively) to shardEndExcl (exclusively)
+            telemetryUrl: null
+            shardStart: {{ shardStart }}
+            shardEnd: {{ shardEnd }}
+            shardCount: {{ shardCount }} # The total number of shards of your entire bot
+            instance: "{{ instance }}" # A human-readable identifier
+
+          sentry:
+            dsn: "https://2036078961f74949adfd495815c9578b:fe8ab71ab1fc436888f29e631c91c924@sentry.botlabs.gg/7"
+            environment: "staging"
+
+          server:
+            port: {{ server_port }}
+
+
+          spring:
+            #rabbitmq:
+              # These default settings should work without configuring the server
+              #host: "{{ rb_host }}"
+              #host: rabbitmq   # use this when running with the attached docker-compose file
+              #port: {{ rb_port }}
+              #username: "{{ username }}"
+              #password: "{{ password }}"
+
+          logging:
+            file:             './logs/sentinel.log'
+            file.max-history: 7
+            file.max-size:    1GB
+
+            level:
+              root:           INFO
+              com.fredboat:   DEBUG
+          management:
+            endpoint:
+              health:
+                show-details: always
+
+          
+
+
+      with_items: "{{ folder }}"
+
+       
+                     
+
+
+   - name: Docker-compose down
+     command: chdir=/root/{{ item }} docker-compose down
+     with_items: "{{ folder }}"
+     ignore_errors: yes
+   - name: Copy files to server keyfile.json
+     ansible.builtin.copy:
+        src: '/home/ubuntu/ansible/Fredboat/fred_docker/keyfile.json'
+        dest: '/root/'
+        mode: '755'
+   - name: Login to GCR
+     shell: cat keyfile.json | docker login -u _json_key --password-stdin https://gcr.io
+
+   - name: Download sentinel docker image from ecr repo
+     command: chdir=/root/{{ item }} docker-compose pull 
+     with_items: "{{ folder }}" 
+
+   - name: Docker-compose up
+     command: chdir=/root/{{ item }} docker-compose up -d
+     with_items: "{{ folder }}"
