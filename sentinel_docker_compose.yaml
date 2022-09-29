@@ -1,3 +1,5 @@
+hosts: all
+tasks:
 - name: Create a Directory {{ item }}
      file:
        path: /root/{{ item }}
