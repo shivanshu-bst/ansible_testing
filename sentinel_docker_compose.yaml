@@ -7,7 +7,7 @@ tasks:
        mode: 0755
      with_items: "{{ folder }}"
        
-   -  name: Copy files to docker-compse
+-  name: Copy files to docker-compse
       ansible.builtin.copy:
         dest: /root/{{ item }}/docker-compose.yaml
         mode: '755'
@@ -46,7 +46,7 @@ tasks:
                 driver: default
                 config:
                 - subnet: 10.6.0.0/16
-      with_items: "{{ folder }}"      
+with_items: "{{ folder }}"      
  
    -  name: Copy files to server sentinel
       copy: 
@@ -98,8 +98,7 @@ tasks:
 
           
 
-
-      with_items: "{{ folder }}"
+with_items: "{{ folder }}"
 
        
                      
