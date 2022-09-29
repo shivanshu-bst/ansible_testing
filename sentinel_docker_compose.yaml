@@ -48,7 +48,7 @@ tasks:
                 - subnet: 10.6.0.0/16
   with_items: "{{ folder }}"      
 - name: Copy files to server sentinel
-      copy: 
+  copy: 
         dest: "/root/{{ item }}/{{ item }}.yml"
         mode: '755'
         content: | 
