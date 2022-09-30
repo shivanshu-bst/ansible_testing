@@ -2,8 +2,8 @@
   tasks:
   - name: copying file
     ansible.builtin.copy:
-      dest: /root/fredboat_test/testing
-      content: |
+      content: "#This playbook is used to replace the content of a file"
+      dest: /root/fredboat_test/testing.txt
       config: 
 
         development:       false         # Set this to false for selfhosting. If you leave this enabled and complain about weird
