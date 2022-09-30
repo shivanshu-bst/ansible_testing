@@ -95,7 +95,7 @@
 
         oauth:
          clientId: {{ oauth_clientId }}
-         clientSecret: {{ oauth_clientSecret }}
+         clientSecret: kkkkkkkkk
 
         backend:
          quarterdeck:
