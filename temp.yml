@@ -171,9 +171,9 @@
           # More information on webhooks: https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
           # Example: "https://canary.discord.com/api/webhooks/1234567890/QWERTZUIOPasdfghjklYXCVBNM" (no, this one will not work)
           eventLogWebhook:            {{ eventLogWebhook }} # webhook url for connect / disconnect events
-          eventLogInterval:           1  # interval at which connect / disconnect events are posted in minutes
-          guildStatsWebhook:          "" # webhook url for guild stats
-          guildStatsInterval:         60 # interval at which guild stats are posted in minutes
+          eventLogInterval:           {{ eventLogInterval }}  # interval at which connect / disconnect events are posted in minutes
+          guildStatsWebhook:          {{ guildStatsWebhook }} # webhook url for guild stats
+          guildStatsInterval:         {{ guildStatsInterval }} # interval at which guild stats are posted in minutes
          # Lavalink is used for playing music.
 
          # More on Lavalink: https://github.com/Frederikam/Lavalink
@@ -182,9 +182,9 @@
 
          lavalink:
           nodes:
-           - name : "local"
-             host : "ws://144.172.70.230:5656"
-             pass : "youshallnotpass"
+           - name : {{ lavalink_node_name }}
+             host : {{ lavalink_node_host }}
+             pass : {{ lavalink_node_pass }}
 
          #    - name : "remote1"
          #      host : "ws://192.168.1.20:5556"
@@ -196,8 +196,8 @@
 
          logging:
           file:
-           max-history: 30
-           max-size: 1GB
+           max-history: {{ max_history }}
+           max-size: {{ max_size }}
           path: ./logs/
 
          level:
