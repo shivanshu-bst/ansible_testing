@@ -136,7 +136,7 @@
             file:
               max-history: {{ max-history }}
               max-size: {{ max-size }}
-            path: {{ path }}
+            path: ./logs/
             level:
               root: {{ root }}
             #    fredboat: DEBUG
