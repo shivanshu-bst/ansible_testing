@@ -6,24 +6,24 @@
       dest: /root/fredboat_test/test.yml
       content: |
         config:
-          development:       {{ development }}         # Set this to false for selfhosting. If you leave this enabled and complain about weird
+          development:       "{{ development }}"         # Set this to false for selfhosting. If you leave this enabled and complain about weird
                                     # things happening to your bot in the selfhosting chat you will be publicly taunted.
-          prefix:            {{ prefix }}         # Default prefix used by the bot
-          botAdmins:         {{ botAdmins }}           # Add comma separated userIds and roleIds that should have access to bot admin commands. Find role ids with the ;;roleinfo command
-          botOwners:         {{ botOwners }}           # Add comma separated userIds that should have access to bot OWNER commands. Mainly intended for bots that belong to teams
+          prefix:            "{{ prefix }}"         # Default prefix used by the bot
+          botAdmins:         "{{ botAdmins }}"           # Add comma separated userIds and roleIds that should have access to bot admin commands. Find role ids with the ;;roleinfo command
+          botOwners:         "{{ botOwners }}"           # Add comma separated userIds that should have access to bot OWNER commands. Mainly intended for bots that belong to teams
           autoBlacklist:     true         # Set to true to automatically blacklist users who frequently hit the rate limits
-          game:             {{ game }}           # Set the displayed game/status. Leave empty quote marks for the default status
-          continuePlayback:  {{ continuePlayback }}        # Set to true to force the player to continue playback even if left alone
-          shardCount: {{ shardCount }}                  # The number of shards this bot supports. Leave at 1 unless you know what you are doing.
-          patron: {{ patron }}
-          environment:       {{ environment }}
+          game:             "{{ game }}"           # Set the displayed game/status. Leave empty quote marks for the default status
+          continuePlayback:  "{{ continuePlayback }}"        # Set to true to force the player to continue playback even if left alone
+          shardCount: "{{ shardCount }}"                  # The number of shards this bot supports. Leave at 1 unless you know what you are doing.
+          patron: "{{ patron }}"
+          environment:       "{{ environment }}"
           # ratelimit:
           #   ipBlocks: ["127.0.0.1/31", "127.0.0.3/32", "..."] # list of ip blocks
           #   excludedIps: ["...", "..."] # ips which should be explicit excluded from usage by lavalink
           #   strategy: "RotateOnBan" # RotateOnBan | LoadBalance | NanoSwitch | RotatingNanoSwitch
           #   searchTriggersFail: true # Whether a search 429 should trigger marking the ip as failing
           server:
-            port: {{ tenshi_port }}                      # Change the port of the API FredBoat exposes
+            port: "{{ tenshi_port }}"                      # Change the port of the API FredBoat exposes
           spring:
           main:
             web-application-type: {{ web-application-type }}    # Set this to "servlet", "reactive" or "none", whichever ends up working, to enable/disable the FredBoat API.
