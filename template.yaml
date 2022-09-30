@@ -1,1 +1,6 @@
-
+- hosts: all
+  tasks:
+  - name: copying
+    ansible.builtin.template:
+     src: ./parameter_testing.yaml
+     dest: /root/
