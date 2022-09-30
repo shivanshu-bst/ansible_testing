@@ -3,7 +3,7 @@
   - name: copying file
     copy:
       dest: /root/fredboat_test/testing.yml
-      content: "#This playbook is used to replace the content of a file" |
+      content: |
         config: 
 
           development:       false         # Set this to false for selfhosting. If you leave this enabled and complain about weird
