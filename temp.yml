@@ -3,7 +3,7 @@
   - name: copying file
     ansible.builtin.copy:
       dest: /root/fredboat_test/
-      content:
+      content: |
       config: 
 
         development:       false         # Set this to false for selfhosting. If you leave this enabled and complain about weird
