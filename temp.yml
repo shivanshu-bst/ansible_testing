@@ -87,15 +87,15 @@
         ################################################################
 
         quarterdeck:
-         host: "http://144.172.70.230:4269/"
-         password: "youshallnotpass"
-         clientId: "886959139333492806"
-         clientSecret: "kx1lRB75lLzphNYSwPBFgduF_w8tivrm"
-         redirectUri: "http://localhost:3000"
+         host: {{ Quarterdeckurl }}
+         password: {{ quarterdeck_password }}
+         clientId: {{ quaterdeck_clientId }}
+         clientSecret: {{ quaterdeck_clientSecret }}
+         redirectUri: {{ quaterdeck_redirectUri }}
 
         oauth:
-         clientId: "886959139333492806"
-         clientSecret: "kx1lRB75lLzphNYSwPBFgduF_w8tivrm"
+         clientId: {{ oauth_clientId }}
+         clientSecret: {{ oauth_clientSecret }}
 
         backend:
          quarterdeck:
@@ -136,16 +136,16 @@
 
           #discordBotToken: ""
 
-          weebShToken: "SDFSenVuRE5fOmUzNzg2NzJlOTg2ZTBkNGFjZWQxMjg2OGVlNDczNjM2NGMyMzFlMTAxNGU0M2ZhM2M1MWNmZDcy"
-          sentinelToken: "youshallnotpass"
+          weebShToken: {{ weebShToken }}
+          sentinelToken: {{ sentinelToken }}
 
          ###############################
 
          crowsnest:
-          baseUrl: "http://localhost:2731"
-          dataset: "dev"
-          token: "youshallnotpass"
-          bufferSize: 1000
+          baseUrl: {{ crowsnest_baseUrl }}
+          dataset: {{ crowsnest_dataset }}
+          token: {{ crowsnest_token }}
+          bufferSize: {{ crowsnest_bufferSize }}
          ################################################################
 
          ###                     Optional APIs
@@ -154,10 +154,10 @@
          # Used to access imgur galleries for some RandomImageCommands
          # Acquired from here: https://api.imgur.com/oauth2/addclient
          # Choose an option that does not require an Authorization callback URL
-          imgurClientId:  "37a5091879be436"
+          imgurClientId:  {{ imgurClientId }}
          # Used by ;;export command. Only set this if you have a https://wastebin.party account.
-          wastebinUser: "fredboat"
-          wastebinPass: "497p4StMJ6YEe3NZmZVT4Wtq2gnKvKpNJ74D5yruV2LF5hf7x6McPpPeYGN8kJRkneYYjnmr3D52AFY5thhLNewfgZHeWq6ADLTSLVExkUGryyaymgGvtg3NwJD4SyDY"
+          wastebinUser: {{ wastebinUser }}
+          wastebinPass:  {{ wastebinPass }}
           spotifyId:      "535096a5d6734273a263567246fa8144"
           spotifySecret:  "fd7126fd5e8a469282f466e6bf7f5dc4"
           # Used by ;;weather command.
