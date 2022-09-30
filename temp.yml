@@ -154,7 +154,7 @@
          # Used to access imgur galleries for some RandomImageCommands
          # Acquired from here: https://api.imgur.com/oauth2/addclient
          # Choose an option that does not require an Authorization callback URL
-          imgurClientId:  {{ imgurClientId }}
+          imgurClientId:  kk
          # Used by ;;export command. Only set this if you have a https://wastebin.party account.
           wastebinUser: dd
           wastebinPass:  dd
