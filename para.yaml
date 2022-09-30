@@ -1,0 +1,211 @@
+- hosts: all
+  tasks:
+  - name: copying file
+    ansible.builtin.copy:
+      dest: /root/fredboat_test/
+      content: |
+         config:
+
+          development:       false         # Set this to false for selfhosting. If you leave this enabled and complain about weird
+
+                                  # things happening to your bot in the selfhosting chat you will be publicly taunted.
+
+          prefix:            '--'         # Default prefix used by the bot
+
+          botAdmins:         [124684327261831170]           # Add comma separated userIds and roleIds that should have access to bot admin commands. Find role ids with the ;;roleinfo command
+
+          botOwners:         [81011298891993088]           # Add comma separated userIds that should have access to bot OWNER commands. Mainly intended for bots that belong to teams
+
+          autoBlacklist:     true         # Set to true to automatically blacklist users who frequently hit the rate limits
+
+          game:              ""           # Set the displayed game/status. Leave empty quote marks for the default status
+
+          continuePlayback:  false        # Set to true to force the player to continue playback even if left alone
+
+          shardCount: 4                   # The number of shards this bot supports. Leave at 1 unless you know what you are doing.
+
+          patron: false
+
+          environment:       "dev"
+
+        # ratelimit:
+
+        #   ipBlocks: ["127.0.0.1/31", "127.0.0.3/32", "..."] # list of ip blocks
+
+        #   excludedIps: ["...", "..."] # ips which should be explicit excluded from usage by lavalink
+
+        #   strategy: "RotateOnBan" # RotateOnBan | LoadBalance | NanoSwitch | RotatingNanoSwitch
+
+        #   searchTriggersFail: true # Whether a search 429 should trigger marking the ip as failing
+
+
+
+        server:
+
+         port: 1234                      # Change the port of the API FredBoat exposes
+
+        spring:
+
+         main:
+
+           web-application-type: reactive    # Set this to "servlet", "reactive" or "none", whichever ends up working, to enable/disable the FredBoat API.
+
+         output:
+          ansi:
+           enabled: detect             # for developers: setting this to "always" will force colored logs in your console
+
+
+
+        staff:
+         botOwners:
+          - 81011298891993088 # Freya
+          - 461887788447694851 # Rahul
+          - 855322320608690206 # Karan
+
+         botAdmins:
+          - 141254861575553024 # Otter
+          - 254826902429237249 # Praetor
+          - 124684327261831170 # Silverwolf
+
+         guilds: []
+        
+        audio-sources:
+
+         enableYouTube:     true         # Set to true to enable playing YouTube links
+         enableSoundCloud:  true         # Set to true to enable playing SoundCloud links
+         enableBandCamp:    true         # Set to true to enable playing BandCamp links
+         enableTwitch:      true         # Set to true to enable playing Twitch links
+         enableVimeo:       true         # Set to true to enable playing Vimeo links
+         enableMixer:       true         # Set to true to enable playing Mixer links
+         enableSpotify:     true         # Set to true to enable playing Spotify links
+         enableLocal:       false        # Set to true to enable playing local files
+         enableHttp:        false        # Set to true to enable playing direct links
+        ################################################################
+ 
+        ###                 Essential credentials
+
+        ################################################################
+
+        quarterdeck:
+         host: "http://144.172.70.230:4269/"
+         password: "youshallnotpass"
+         clientId: "886959139333492806"
+         clientSecret: "kx1lRB75lLzphNYSwPBFgduF_w8tivrm"
+         redirectUri: "http://localhost:3000"
+
+        oauth:
+         clientId: "886959139333492806"
+         clientSecret: "kx1lRB75lLzphNYSwPBFgduF_w8tivrm"
+
+        backend:
+         quarterdeck:
+          # Host address of your quarterdeck backend, including port unless you are using a reverse proxy
+          # Example: https://such.example.com:4269/
+          # No need set the host when running Quarterdeck in Docker.
+          #host: "http://quarterdeck-old:4269/"
+
+          # Credentials used to authenticate to with Quarterdeck.
+
+          # By default Quarterdeck uses docker:docker when using our docker-compose files
+
+          #user: "docker"
+
+          #pass: "docker"
+
+
+
+
+
+         credentials:
+ 
+          # Used by the ;;split and ;;np commands. Must be hooked up to the Youtube Data API.
+
+          # You can add additional keys in case you are running a big bot
+
+          # How to get the key: https://developers.google.com/youtube/registering_an_application
+
+          # Add your google API key between the quotation marks
+
+          #googleApiKeys:
+
+          #  - "PutYourGoogleAPIKeyHere"
+
+
+
+          # The preferred way of setting the token is described in ./common.yml
+
+          #discordBotToken: ""
+
+          weebShToken: "SDFSenVuRE5fOmUzNzg2NzJlOTg2ZTBkNGFjZWQxMjg2OGVlNDczNjM2NGMyMzFlMTAxNGU0M2ZhM2M1MWNmZDcy"
+          sentinelToken: "youshallnotpass"
+
+         ###############################
+
+         crowsnest:
+          baseUrl: "http://localhost:2731"
+          dataset: "dev"
+          token: "youshallnotpass"
+          bufferSize: 1000
+         ################################################################
+
+         ###                     Optional APIs
+
+         ################################################################
+         # Used to access imgur galleries for some RandomImageCommands
+         # Acquired from here: https://api.imgur.com/oauth2/addclient
+         # Choose an option that does not require an Authorization callback URL
+          imgurClientId:  "37a5091879be436"
+         # Used by ;;export command. Only set this if you have a https://wastebin.party account.
+          wastebinUser: "fredboat"
+          wastebinPass: "497p4StMJ6YEe3NZmZVT4Wtq2gnKvKpNJ74D5yruV2LF5hf7x6McPpPeYGN8kJRkneYYjnmr3D52AFY5thhLNewfgZHeWq6ADLTSLVExkUGryyaymgGvtg3NwJD4SyDY"
+          spotifyId:      "535096a5d6734273a263567246fa8144"
+          spotifySecret:  "fd7126fd5e8a469282f466e6bf7f5dc4"
+          # Used by ;;weather command.
+          # Get them from: http://openweathermap.org/appid
+          openWeatherKey: ""
+          # Error aggregation service https://sentry.io/
+          sentryDsn:      "https://249152c41bd64eb6ba4f15e7856e01a9:249152c41bd64eb6ba4f15e7856e01a9@sentry.botlabs.gg/8"
+
+         event-logger:
+          # Webhooks to Discord channels that will post some guild stats and shard status changes
+          # More information on webhooks: https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
+          # Example: "https://canary.discord.com/api/webhooks/1234567890/QWERTZUIOPasdfghjklYXCVBNM" (no, this one will not work)
+          eventLogWebhook:            "" # webhook url for connect / disconnect events
+          eventLogInterval:           1  # interval at which connect / disconnect events are posted in minutes
+          guildStatsWebhook:          "" # webhook url for guild stats
+          guildStatsInterval:         60 # interval at which guild stats are posted in minutes
+         # Lavalink is used for playing music.
+
+         # More on Lavalink: https://github.com/Frederikam/Lavalink
+
+         # If fully commented out, FredBoat will automatically guess that Lavalink is hosted locally at port 2333
+
+         lavalink:
+          nodes:
+           - name : "local"
+             host : "ws://144.172.70.230:5656"
+             pass : "youshallnotpass"
+
+         #    - name : "remote1"
+         #      host : "ws://192.168.1.20:5556"
+         #      pass : "youshallnotpass"
+         #    - name : "remote2"
+         #      host : "ws://lavalink.example.com:5557"
+         #      pass : "youshallnotpass"
+         # tune these according to your needs, or just leave them as is.
+
+         logging:
+          file:
+           max-history: 30
+           max-size: 1GB
+          path: ./logs/
+
+         level:
+          root: INFO
+          #    fredboat: DEBUG
+
+          #    com.fredboat: DEBUG
+
+          #    net.dv8tion: DEBUG
+
+
