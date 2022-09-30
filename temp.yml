@@ -48,11 +48,11 @@
 
          main:
 
-           web-application-type: reactive    # Set this to "servlet", "reactive" or "none", whichever ends up working, to enable/disable the FredBoat API.
+           web-application-type: {{ web_application_type }}    # Set this to "servlet", "reactive" or "none", whichever ends up working, to enable/disable the FredBoat API.
 
          output:
           ansi:
-           enabled: detect             # for developers: setting this to "always" will force colored logs in your console
+           enabled: {{ enabled }}             # for developers: setting this to "always" will force colored logs in your console
 
 
 
@@ -71,15 +71,15 @@
 
         audio-sources:
 
-         enableYouTube:     true         # Set to true to enable playing YouTube links
-         enableSoundCloud:  true         # Set to true to enable playing SoundCloud links
-         enableBandCamp:    true         # Set to true to enable playing BandCamp links
-         enableTwitch:      true         # Set to true to enable playing Twitch links
-         enableVimeo:       true         # Set to true to enable playing Vimeo links
-         enableMixer:       true         # Set to true to enable playing Mixer links
-         enableSpotify:     true         # Set to true to enable playing Spotify links
-         enableLocal:       false        # Set to true to enable playing local files
-         enableHttp:        false        # Set to true to enable playing direct links
+         enableYouTube:     {{ enableYouTube }}         # Set to true to enable playing YouTube links
+         enableSoundCloud:  {{ enableSoundCloud }}         # Set to true to enable playing SoundCloud links
+         enableBandCamp:    {{ enableBandCamp }}         # Set to true to enable playing BandCamp links
+         enableTwitch:      {{ enableTwitch }}         # Set to true to enable playing Twitch links
+         enableVimeo:       {{ enableVimeo }}         # Set to true to enable playing Vimeo links
+         enableMixer:       {{ enableMixer }}         # Set to true to enable playing Mixer links
+         enableSpotify:     {{ enableSpotify }}         # Set to true to enable playing Spotify links
+         enableLocal:       {{ enableLocal }}        # Set to true to enable playing local files
+         enableHttp:        {{ enableHttp }}        # Set to true to enable playing direct links
         ################################################################
 
         ###                 Essential credentials
