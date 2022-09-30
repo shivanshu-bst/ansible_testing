@@ -6,142 +6,142 @@
       dest: /root/fredboat_test/
       content: |
         config:
-        development:       {{ development }}         # Set this to false for selfhosting. If you leave this enabled and complain about weird
-                                  # things happening to your bot in the selfhosting chat you will be publicly taunted.
-        prefix:            {{ prefix }}         # Default prefix used by the bot
-        botAdmins:         {{ botAdmins }}           # Add comma separated userIds and roleIds that should have access to bot admin commands. Find role ids with the ;;roleinfo command
-        botOwners:         {{ botOwners }}           # Add comma separated userIds that should have access to bot OWNER commands. Mainly intended for bots that belong to teams
-        autoBlacklist:     true         # Set to true to automatically blacklist users who frequently hit the rate limits
-        game:             {{ game }}           # Set the displayed game/status. Leave empty quote marks for the default status
-        continuePlayback:  {{ continuePlayback }}        # Set to true to force the player to continue playback even if left alone
-        shardCount: {{ shardCount }}                  # The number of shards this bot supports. Leave at 1 unless you know what you are doing.
-        patron: {{ patron }}
-        environment:       {{ environment }}
-        # ratelimit:
-        #   ipBlocks: ["127.0.0.1/31", "127.0.0.3/32", "..."] # list of ip blocks
-        #   excludedIps: ["...", "..."] # ips which should be explicit excluded from usage by lavalink
-        #   strategy: "RotateOnBan" # RotateOnBan | LoadBalance | NanoSwitch | RotatingNanoSwitch
-        #   searchTriggersFail: true # Whether a search 429 should trigger marking the ip as failing
-        server:
-          port: {{ tenshi_port }}                      # Change the port of the API FredBoat exposes
-        spring:
-        main:
-          web-application-type: {{ web-application-type }}    # Set this to "servlet", "reactive" or "none", whichever ends up working, to enable/disable the FredBoat API.
-        output:
-          ansi:
-            enabled: {{ enabled }}             # for developers: setting this to "always" will force colored logs in your console 
-        staff:
-        botOwners:
-          - 81011298891993088 # Freya
-          - 461887788447694851 # Rahul
-          - 855322320608690206 # Karan
-        botAdmins:
-          - 141254861575553024 # Otter
-          - 254826902429237249 # Praetor
-          - 124684327261831170 # Silverwolf
-        guilds: []
-        audio-sources:
-        enableYouTube:     {{ enableYouTube }}         # Set to true to enable playing YouTube links
-        enableSoundCloud:  {{ enableSoundCloud }}         # Set to true to enable playing SoundCloud links
-        enableBandCamp:    {{ enableBandCamp }}         # Set to true to enable playing BandCamp links
-        enableTwitch:      {{ enableTwitch }}        # Set to true to enable playing Twitch links
-        enableVimeo:       {{ enableVimeo }}         # Set to true to enable playing Vimeo links
-        enableMixer:       {{ enableMixer }}         # Set to true to enable playing Mixer links
-        enableSpotify:     {{ enableSpotify }}         # Set to true to enable playing Spotify links
-        enableLocal:       {{ enableLocal }}        # Set to true to enable playing local files
-        enableHttp:        {{ enableHttp }}        # Set to true to enable playing direct links 
-        ################################################################
+          development:       {{ development }}         # Set this to false for selfhosting. If you leave this enabled and complain about weird
+                                    # things happening to your bot in the selfhosting chat you will be publicly taunted.
+          prefix:            {{ prefix }}         # Default prefix used by the bot
+          botAdmins:         {{ botAdmins }}           # Add comma separated userIds and roleIds that should have access to bot admin commands. Find role ids with the ;;roleinfo command
+          botOwners:         {{ botOwners }}           # Add comma separated userIds that should have access to bot OWNER commands. Mainly intended for bots that belong to teams
+          autoBlacklist:     true         # Set to true to automatically blacklist users who frequently hit the rate limits
+          game:             {{ game }}           # Set the displayed game/status. Leave empty quote marks for the default status
+          continuePlayback:  {{ continuePlayback }}        # Set to true to force the player to continue playback even if left alone
+          shardCount: {{ shardCount }}                  # The number of shards this bot supports. Leave at 1 unless you know what you are doing.
+          patron: {{ patron }}
+          environment:       {{ environment }}
+          # ratelimit:
+          #   ipBlocks: ["127.0.0.1/31", "127.0.0.3/32", "..."] # list of ip blocks
+          #   excludedIps: ["...", "..."] # ips which should be explicit excluded from usage by lavalink
+          #   strategy: "RotateOnBan" # RotateOnBan | LoadBalance | NanoSwitch | RotatingNanoSwitch
+          #   searchTriggersFail: true # Whether a search 429 should trigger marking the ip as failing
+          server:
+            port: {{ tenshi_port }}                      # Change the port of the API FredBoat exposes
+          spring:
+          main:
+            web-application-type: {{ web-application-type }}    # Set this to "servlet", "reactive" or "none", whichever ends up working, to enable/disable the FredBoat API.
+          output:
+            ansi:
+              enabled: {{ enabled }}             # for developers: setting this to "always" will force colored logs in your console 
+          staff:
+          botOwners:
+            - 81011298891993088 # Freya
+            - 461887788447694851 # Rahul
+            - 855322320608690206 # Karan
+          botAdmins:
+            - 141254861575553024 # Otter
+            - 254826902429237249 # Praetor
+            - 124684327261831170 # Silverwolf
+          guilds: []
+          audio-sources:
+          enableYouTube:     {{ enableYouTube }}         # Set to true to enable playing YouTube links
+          enableSoundCloud:  {{ enableSoundCloud }}         # Set to true to enable playing SoundCloud links
+          enableBandCamp:    {{ enableBandCamp }}         # Set to true to enable playing BandCamp links
+          enableTwitch:      {{ enableTwitch }}        # Set to true to enable playing Twitch links
+          enableVimeo:       {{ enableVimeo }}         # Set to true to enable playing Vimeo links
+          enableMixer:       {{ enableMixer }}         # Set to true to enable playing Mixer links
+          enableSpotify:     {{ enableSpotify }}         # Set to true to enable playing Spotify links
+          enableLocal:       {{ enableLocal }}        # Set to true to enable playing local files
+          enableHttp:        {{ enableHttp }}        # Set to true to enable playing direct links 
+          ################################################################
 
-        ###                 Essential credentials
+          ###                 Essential credentials
 
-        ################################################################
-       quarterdeck:
-        host: {{ Quarterdeckurl }}
-        password: {{ quarterdeck_password }}
-        clientId: {{ quaterdeck_clientId }}
-        clientSecret: {{ quaterdeck_clientSecret }}
-        redirectUri: {{ quaterdeck_redirectUri }}
-       oauth:
-        clientId: {{ oauth_clientId }}
-        clientSecret: {{ oauth_clientSecret }}
-       backend:
-        quarterdeck:
-          # Host address of your quarterdeck backend, including port unless you are using a reverse proxy.
-          # Example: https://such.example.com:4269/
-          # No need set the host when running Quarterdeck in Docker.
-          #host: "http://quarterdeck-old:4269/"
-          # Credentials used to authenticate to with Quarterdeck.
-          # By default Quarterdeck uses docker:docker when using our docker-compose files
-          #user: "docker"
-          #pass: "docker"
-       credentials:
-        # Used by the ;;split and ;;np commands. Must be hooked up to the Youtube Data API.
-        # You can add additional keys in case you are running a big bot
-        # How to get the key: https://developers.google.com/youtube/registering_an_application
-        # Add your google API key between the quotation marks
-        #googleApiKeys:
-        #  - "PutYourGoogleAPIKeyHere"
-        # The preferred way of setting the token is described in ./common.yml
-        #discordBotToken: ""
-        weebShToken: {{ weebShToken }}
-        sentinelToken: {{ sentinelToken }
-        ###############################
-       crowsnest:
-        baseUrl: {{ crowsnest_baseUrl }}
-        dataset: {{ crowsnest_dataset }}
-        token: {{ crowsnest_token }}
-        bufferSize: {{ crowsnest_bufferSize }}
+          ################################################################
+          quarterdeck:
+            host: {{ Quarterdeckurl }}
+            password: {{ quarterdeck_password }}
+            clientId: {{ quaterdeck_clientId }}
+            clientSecret: {{ quaterdeck_clientSecret }}
+            redirectUri: {{ quaterdeck_redirectUri }}
+           oauth:
+            clientId: {{ oauth_clientId }}
+            clientSecret: {{ oauth_clientSecret }}
+           backend:
+            quarterdeck:
+              # Host address of your quarterdeck backend, including port unless you are using a reverse proxy.
+              # Example: https://such.example.com:4269/
+              # No need set the host when running Quarterdeck in Docker.
+              #host: "http://quarterdeck-old:4269/"
+              # Credentials used to authenticate to with Quarterdeck.
+              # By default Quarterdeck uses docker:docker when using our docker-compose files
+              #user: "docker"
+              #pass: "docker"
+           credentials:
+            # Used by the ;;split and ;;np commands. Must be hooked up to the Youtube Data API.
+            # You can add additional keys in case you are running a big bot
+            # How to get the key: https://developers.google.com/youtube/registering_an_application
+            # Add your google API key between the quotation marks
+            #googleApiKeys:
+            #  - "PutYourGoogleAPIKeyHere"
+            # The preferred way of setting the token is described in ./common.yml
+            #discordBotToken: ""
+            weebShToken: {{ weebShToken }}
+            sentinelToken: {{ sentinelToken }
+            ###############################
+           crowsnest:
+            baseUrl: {{ crowsnest_baseUrl }}
+            dataset: {{ crowsnest_dataset }}
+            token: {{ crowsnest_token }}
+            bufferSize: {{ crowsnest_bufferSize }}
 
-        ################################################################
-        ###                     Optional APIs
-        ################################################################
-        # Used to access imgur galleries for some RandomImageCommands
-        # Acquired from here: https://api.imgur.com/oauth2/addclient
-        # Choose an option that does not require an Authorization callback URL
-       imgurClientId:  {{ imgurClientId }}
-       # Used by ;;export command. Only set this if you have a https://wastebin.party account.
-        wastebinUser: {{ wastebinUser }}
-        wastebinPass: {{ wastebinPass }
-        spotifyId:      {{ spotifyId }}
-        spotifySecret:  {{ spotifySecret }}
-        # Used by ;;weather command.
-        # Get them from: http://openweathermap.org/appid
-        openWeatherKey: {{ openWeatherKey }}
-        # Error aggregation service https://sentry.io/
-        sentryDsn: {{ sentryDsn }}
-        event-logger:
-        # Webhooks to Discord channels that will post some guild stats and shard status changes
-        # More information on webhooks: https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
-        # Example: "https://canary.discord.com/api/webhooks/1234567890/QWERTZUIOPasdfghjklYXCVBNM" (no, this one will not work)
-        eventLogWebhook:            {{ eventLogWebhook }}# webhook url for connect / disconnect events
-        eventLogInterval:          {{ eventLogInterval }}  # interval at which connect / disconnect events are posted in minutes
-        guildStatsWebhook:          {{ guildStatsWebhook }} # webhook url for guild stats
-        guildStatsInterval:        {{ guildStatsInterval }} # interval at which guild stats are posted in minutes
-        # Lavalink is used for playing music.
-        # More on Lavalink: https://github.com/Frederikam/Lavalink
-        # If fully commented out, FredBoat will automatically guess that Lavalink is hosted locally at port 2333
-       lavalink:
-        nodes:
-          - name : {{ lavalink_node_name }}
-            host : {{ lavalink_node_host }}
-            pass : {{ lavalink_node_pass }}
-        #    - name : "remote1"
-        #      host : "ws://192.168.1.20:5556"
-        #      pass : "youshallnotpass"
-        #    - name : "remote2"
-        #      host : "ws://lavalink.example.com:5557"
-        #      pass : "youshallnotpass"
-        # tune these according to your needs, or just leave them as is.
-       logging:
-        file:
-          max-history: {{ max-history }}
-          max-size: {{ max-size }}
-        path: {{ path }}
-        level:
-          root: {{ root }}
-        #    fredboat: DEBUG
-        #    com.fredboat: DEBUG
-        #    net.dv8tion: DEBUG
+            ################################################################
+            ###                     Optional APIs
+            ################################################################
+            # Used to access imgur galleries for some RandomImageCommands
+            # Acquired from here: https://api.imgur.com/oauth2/addclient
+            # Choose an option that does not require an Authorization callback URL
+           imgurClientId:  {{ imgurClientId }}
+           # Used by ;;export command. Only set this if you have a https://wastebin.party account.
+            wastebinUser: {{ wastebinUser }}
+            wastebinPass: {{ wastebinPass }
+            spotifyId:      {{ spotifyId }}
+            spotifySecret:  {{ spotifySecret }}
+            # Used by ;;weather command.
+            # Get them from: http://openweathermap.org/appid
+            openWeatherKey: {{ openWeatherKey }}
+            # Error aggregation service https://sentry.io/
+            sentryDsn: {{ sentryDsn }}
+            event-logger:
+            # Webhooks to Discord channels that will post some guild stats and shard status changes
+            # More information on webhooks: https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
+            # Example: "https://canary.discord.com/api/webhooks/1234567890/QWERTZUIOPasdfghjklYXCVBNM" (no, this one will not work)
+            eventLogWebhook:            {{ eventLogWebhook }}# webhook url for connect / disconnect events
+            eventLogInterval:          {{ eventLogInterval }}  # interval at which connect / disconnect events are posted in minutes
+            guildStatsWebhook:          {{ guildStatsWebhook }} # webhook url for guild stats
+            guildStatsInterval:        {{ guildStatsInterval }} # interval at which guild stats are posted in minutes
+            # Lavalink is used for playing music.
+            # More on Lavalink: https://github.com/Frederikam/Lavalink
+            # If fully commented out, FredBoat will automatically guess that Lavalink is hosted locally at port 2333
+           lavalink:
+            nodes:
+              - name : {{ lavalink_node_name }}
+                host : {{ lavalink_node_host }}
+                pass : {{ lavalink_node_pass }}
+            #    - name : "remote1"
+            #      host : "ws://192.168.1.20:5556"
+            #      pass : "youshallnotpass"
+            #    - name : "remote2"
+            #      host : "ws://lavalink.example.com:5557"
+            #      pass : "youshallnotpass"
+            # tune these according to your needs, or just leave them as is.
+           logging:
+            file:
+              max-history: {{ max-history }}
+              max-size: {{ max-size }}
+            path: {{ path }}
+            level:
+              root: {{ root }}
+            #    fredboat: DEBUG
+            #    com.fredboat: DEBUG
+            #    net.dv8tion: DEBUG
 
 
     
