@@ -137,15 +137,15 @@
           #discordBotToken: ""
 
           weebShToken: dd
-          sentinelToken: dd
+          sentinelToken: {{ sentinelToken }}
 
          ###############################
 
          crowsnest:
-          baseUrl: dd
-          dataset: dd
-          token: dd
-          bufferSize: dd
+          baseUrl: {{ crowsnest_baseUrl }}
+          dataset: {{ crowsnest_dataset }}
+          token: {{ crowsnest_token }}
+          bufferSize: {{ crowsnest_bufferSize }}
          ################################################################
 
          ###                     Optional APIs
