@@ -158,19 +158,19 @@
          # Used by ;;export command. Only set this if you have a https://wastebin.party account.
           wastebinUser: {{ wastebinUser }}
           wastebinPass:  {{ wastebinPass }}
-          spotifyId:      "535096a5d6734273a263567246fa8144"
-          spotifySecret:  "fd7126fd5e8a469282f466e6bf7f5dc4"
+          spotifyId:      {{ spotifyId }}
+          spotifySecret:  {{ spotifySecret }}
           # Used by ;;weather command.
           # Get them from: http://openweathermap.org/appid
-          openWeatherKey: ""
+          openWeatherKey: {{ openWeatherKey }}
           # Error aggregation service https://sentry.io/
-          sentryDsn:      "https://249152c41bd64eb6ba4f15e7856e01a9:249152c41bd64eb6ba4f15e7856e01a9@sentry.botlabs.gg/8"
+          sentryDsn:      {{ sentryDsn }}
 
          event-logger:
           # Webhooks to Discord channels that will post some guild stats and shard status changes
           # More information on webhooks: https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
           # Example: "https://canary.discord.com/api/webhooks/1234567890/QWERTZUIOPasdfghjklYXCVBNM" (no, this one will not work)
-          eventLogWebhook:            "" # webhook url for connect / disconnect events
+          eventLogWebhook:            {{ eventLogWebhook }} # webhook url for connect / disconnect events
           eventLogInterval:           1  # interval at which connect / disconnect events are posted in minutes
           guildStatsWebhook:          "" # webhook url for guild stats
           guildStatsInterval:         60 # interval at which guild stats are posted in minutes
