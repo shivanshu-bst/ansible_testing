@@ -18,15 +18,15 @@
 
           autoBlacklist:     true         # Set to true to automatically blacklist users who frequently hit the rate limits
 
-          game:              ""           # Set the displayed game/status. Leave empty quote marks for the default status
+          game:              {{ game }}           # Set the displayed game/status. Leave empty quote marks for the default status
 
-          continuePlayback:  false        # Set to true to force the player to continue playback even if left alone
+          continuePlayback:  {{ continuePlayback }}        # Set to true to force the player to continue playback even if left alone
 
-          shardCount: 4                   # The number of shards this bot supports. Leave at 1 unless you know what you are doing.
+          shardCount: {{ shardCount }}                   # The number of shards this bot supports. Leave at 1 unless you know what you are doing.
 
-          patron: false
+          patron: {{ patron }}
 
-          environment:       "dev"
+          environment:       {{ environment }}
 
         # ratelimit:
 
@@ -42,7 +42,7 @@
 
         server:
 
-         port: 1234                      # Change the port of the API FredBoat exposes
+         port: {{ tenshi_port }}                      # Change the port of the API FredBoat exposes
 
         spring:
 
