@@ -94,7 +94,7 @@
          redirectUri: {{ quaterdeck_redirectUri }}
 
         oauth:
-         clientId: {{ oauth_clientId }}
+         clientId: dddddddd
          clientSecret: kkkkkkkkk
 
         backend:
@@ -136,16 +136,16 @@
 
           #discordBotToken: ""
 
-          weebShToken: {{ weebShToken }}
-          sentinelToken: {{ sentinelToken }}
+          weebShToken: dd
+          sentinelToken: dd
 
          ###############################
 
          crowsnest:
-          baseUrl: {{ crowsnest_baseUrl }}
-          dataset: {{ crowsnest_dataset }}
-          token: {{ crowsnest_token }}
-          bufferSize: {{ crowsnest_bufferSize }}
+          baseUrl: dd
+          dataset: dd
+          token: dd
+          bufferSize: dd
          ################################################################
 
          ###                     Optional APIs
@@ -156,8 +156,8 @@
          # Choose an option that does not require an Authorization callback URL
           imgurClientId:  {{ imgurClientId }}
          # Used by ;;export command. Only set this if you have a https://wastebin.party account.
-          wastebinUser: {{ wastebinUser }}
-          wastebinPass:  {{ wastebinPass }}
+          wastebinUser: dd
+          wastebinPass:  dd
           spotifyId:      "535096a5d6734273a263567246fa8144"
           spotifySecret:  "fd7126fd5e8a469282f466e6bf7f5dc4"
           # Used by ;;weather command.
