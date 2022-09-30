@@ -1,0 +1,15 @@
+- hosts: all
+  tasks:
+  - name: Stop docker compose
+    command: docker-compose down
+    args:
+     chdir: /root/{{ folder }}
+  - name: Docker pull lates
+    command: docker-compose pull
+    args:
+     chdir: /root/{{ folder }}
+  - name: Docker compose up
+    command: docker-compose up -d
+    args:
+      chdir: /root/{{ folder }}
+    ignore_errors: yes
