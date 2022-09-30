@@ -94,8 +94,8 @@
          redirectUri: {{ quaterdeck_redirectUri }}
 
         oauth:
-         clientId: dddddddd
-         clientSecret: kkkkkkkkk
+         clientId: {{ oauth_clientId }}
+         clientSecret: {{ oauth_clientSecret }}
 
         backend:
          quarterdeck:
