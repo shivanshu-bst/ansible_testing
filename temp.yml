@@ -6,7 +6,7 @@
       content: |
         config: 
 
-          development:       false         # Set this to false for selfhosting. If you leave this enabled and complain about weird
+          development:       {{ development }}         # Set this to false for selfhosting. If you leave this enabled and complain about weird
 
                                   # things happening to your bot in the selfhosting chat you will be publicly taunted.
 
