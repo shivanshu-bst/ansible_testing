@@ -1,7 +1,7 @@
 - hosts: all
   tasks:
   - name: copying file
-    ansible.builtin.copy:
+    copy:
       content: "#This playbook is used to replace the content of a file"
       dest: /root/fredboat_test/testing.txt
       config: 
