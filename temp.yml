@@ -1,5 +1,10 @@
 - hosts: all
   tasks:
+  - name: generate list from string
+    set_fact: 
+     test_list: "{{ {{ Botowners_list }}.split(',') | list }}"
+  
+  
   - name: copying file
     copy:
       dest: /root/fredboat_test/testing.yml
