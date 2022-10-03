@@ -63,9 +63,9 @@
 
         staff:
          botOwners:
-          - 81011298891993088 # Freya
-          - 461887788447694851 # Rahul
-          - 855322320608690206 # Karan
+         {% for i in test_list %}
+          - {{ i }} 
+          {% endfor %}
 
          botAdmins:
           - 141254861575553024 # Otter
