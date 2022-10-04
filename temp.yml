@@ -79,7 +79,7 @@
           - 254826902429237249 # Praetor
           - 124684327261831170 # Silverwolf
 
-         guilds:]
+         guilds:
           - id: {{ guilds_id_1 }}
             botAdmins:
              roles:
