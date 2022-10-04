@@ -9,6 +9,9 @@
   - name: generate list from string for roles2
     set_fact: 
      l_role2: "{{ roles2.split(',') | list }}"
+  - name: generate list from string for botadmin
+    set_fact: 
+     l_botadmin: "{{ botAdmins_list.split(',') | list }}"
    
   
   
@@ -75,9 +78,10 @@
          {% endfor %}
 
          botAdmins:
-          - 141254861575553024 # Otter
-          - 254826902429237249 # Praetor
-          - 124684327261831170 # Silverwolf
+         {% for i in l_botadmin %}
+          - {{ i }}
+         {% endfor %}
+          
 
          guilds:
           - id: {{ guilds_id_1 }}
