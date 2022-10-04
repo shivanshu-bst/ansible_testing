@@ -64,7 +64,7 @@
         staff:
          botOwners:
          {% for i in test_list %}
-         - {{ i }} 
+          - {{ i }} 
          {% endfor %}
 
          botAdmins:
