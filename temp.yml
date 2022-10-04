@@ -1,8 +1,15 @@
 - hosts: all
   tasks:
-  - name: generate list from string
+  - name: generate list from string for botowner
     set_fact: 
      test_list: "{{ Botowners_list.split(',') | list }}"
+  - name: generate list from string for roles1
+    set_fact: 
+     l_role1: "{{ roles1.split(',') | list }}"
+  - name: generate list from string for roles2
+    set_fact: 
+     l_role2: "{{ roles2.split(',') | list }}"
+   
   
   
   - name: copying file
@@ -72,16 +79,20 @@
           - 254826902429237249 # Praetor
           - 124684327261831170 # Silverwolf
 
-         guilds:
+         guilds:]
           - id: {{ guilds_id_1 }}
             botAdmins:
              roles:
-              - aaaa
+             {% for i in l_role1 %}
+              - {{ i }}
+             {% endfor %}
+              
           - id: {{ guilds_id_2 }}
             botAdmins:
              roles:
-              - aaaaa
-              - aaaaa
+             {% for i in l_role2 %}
+              - {{ i }}
+             {% endfor %}
 
         audio-sources:
 
