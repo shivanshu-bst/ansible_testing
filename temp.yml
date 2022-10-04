@@ -64,7 +64,7 @@
         staff:
          botOwners:
          {% for i in test_list %}
-          -{{ i }} 
+          - {{ i }} 
           {% endfor %}
 
          botAdmins:
@@ -212,3 +212,6 @@
           #    com.fredboat: DEBUG
 
           #    net.dv8tion: DEBUG
+  - name: printing value
+    debug:
+     var: test_list
