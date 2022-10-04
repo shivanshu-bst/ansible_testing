@@ -64,8 +64,8 @@
         staff:
          botOwners:
          {% for i in test_list %}
-          - {{ i }} 
-          {% endfor %}
+         - {{ i }} 
+         {% endfor %}
 
          botAdmins:
           - 141254861575553024 # Otter
